@@ -5,10 +5,10 @@ const ComparisonPage = () => {
   const [result2, setResult2] = useState();
   const [resultAnnouncement, setResultAnnouncement] = useState([]);
 
-  const [priceInput, setPriceInput] = useState([]);
-  const [priceInput2, setPriceInput2] = useState([]);
-  const [sizeInput, setSizeInput] = useState([]);
-  const [sizeInput2, setSizeInput2] = useState([]);
+  const [priceInput, setPriceInput] = useState("");
+  const [priceInput2, setPriceInput2] = useState("");
+  const [sizeInput, setSizeInput] = useState("");
+  const [sizeInput2, setSizeInput2] = useState("");
 
   const priceInputHandler = (e) => {
     setPriceInput(e.target.valueAsNumber);
@@ -24,10 +24,19 @@ const ComparisonPage = () => {
   };
 
   const getResults = (e) => {
-    if (priceInput === "" || priceInput2 === "" || sizeInput === "" || sizeInput2 === ""|| priceInput === 0 || priceInput2 === 0 || sizeInput === 0 || sizeInput2 === 0){
+    if (
+      priceInput === "" ||
+      priceInput2 === "" ||
+      sizeInput === "" ||
+      sizeInput2 === "" ||
+      priceInput === 0 ||
+      priceInput2 === 0 ||
+      sizeInput === 0 ||
+      sizeInput2 === 0
+    ) {
       document.getElementById("announcement").classList.add("hidden");
       document.querySelector(".results").classList.add("hidden");
-      alert("Írj be pozitív értéket minden mezőbe")
+      alert("Írj be pozitív értéket minden mezőbe");
     } else {
       setResult(
         `${(priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
@@ -39,13 +48,10 @@ const ComparisonPage = () => {
       Number((priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2))
         ? setResultAnnouncement("Az első pizza jobban megéri")
         : setResultAnnouncement("A második pizza jobban megéri");
-      setPriceInput("");
-      setPriceInput2("");
-      setSizeInput("");
-      setSizeInput2("");
-    } 
-      
-
+        document.getElementById("announcement").classList.remove("hidden");
+        document.querySelector(".results").classList.remove("hidden");
+  
+    }
   };
 
   return (
