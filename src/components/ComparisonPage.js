@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 const ComparisonPage = () => {
-  const [result, setResult] = useState(0);
-  const [result2, setResult2] = useState(0);
-  const [resultAnnouncement, setResultAnnouncement] = useState("")
+  const [result, setResult] = useState();
+  const [result2, setResult2] = useState();
+  const [resultAnnouncement, setResultAnnouncement] = useState([]);
 
-  const [priceInput, setPriceInput] = useState(0);
-  const [priceInput2, setPriceInput2] = useState(0);
-  const [sizeInput, setSizeInput] = useState(0);
-  const [sizeInput2, setSizeInput2] = useState(0);
+  const [priceInput, setPriceInput] = useState([]);
+  const [priceInput2, setPriceInput2] = useState([]);
+  const [sizeInput, setSizeInput] = useState([]);
+  const [sizeInput2, setSizeInput2] = useState([]);
 
   const priceInputHandler = (e) => {
     setPriceInput(e.target.valueAsNumber);
@@ -24,9 +24,28 @@ const ComparisonPage = () => {
   };
 
   const getResults = (e) => {
-    setResult(`${(priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`);
-    setResult2(`${(priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`);
-    setResultAnnouncement(setResult < setResult2 ? "Az első pizza jobban megéri" : "A második pizza jobban megéri")
+    if (priceInput === "" || priceInput2 === "" || sizeInput === "" || sizeInput2 === ""|| priceInput === 0 || priceInput2 === 0 || sizeInput === 0 || sizeInput2 === 0){
+      document.getElementById("announcement").classList.add("hidden");
+      document.querySelector(".results").classList.add("hidden");
+      alert("Írj be pozitív értéket minden mezőbe")
+    } else {
+      setResult(
+        `${(priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
+      );
+      setResult2(
+        `${(priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
+      );
+      Number((priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)) <
+      Number((priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2))
+        ? setResultAnnouncement("Az első pizza jobban megéri")
+        : setResultAnnouncement("A második pizza jobban megéri");
+      setPriceInput("");
+      setPriceInput2("");
+      setSizeInput("");
+      setSizeInput2("");
+    } 
+      
+
   };
 
   return (
@@ -61,7 +80,7 @@ const ComparisonPage = () => {
       </div>
       <div className="compareBtn">
         <button onClick={getResults}>Összehasonlítás</button>
-        <h4>{resultAnnouncement}</h4>
+        <h4 id="announcement">{resultAnnouncement}</h4>
       </div>
       <div className="results">
         <h4>{result}</h4>

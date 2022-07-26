@@ -5,8 +5,13 @@ body{
 
 
 .pizzaOneAndTwo{
+    h3{
+        font-size: x-large;
+        margin-bottom: 50px;
+    }
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
 .compareBtn{
     text-align: center;
@@ -14,4 +19,8 @@ body{
 .results{
     display: flex;
     justify-content: space-around;
+}
+
+.hidden{
+    display: none;
 }
