@@ -23,36 +23,46 @@ const ComparisonPage = () => {
     setSizeInput2(e.target.valueAsNumber);
   };
 
+/*    const firstPizzaDistrict = () => {
+    (priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)
+  } 
+   const secondPizzaDistrict = () => {
+    (priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2)
+  }  */
+
   const getResults = (e) => {
-    if (
-      priceInput === "" ||
-      priceInput2 === "" ||
+    
+/*     if (
+       priceInput === "" ||
+       priceInput2 === "" ||
       sizeInput === "" ||
-      sizeInput2 === "" ||
-      priceInput === 0 ||
-      priceInput2 === 0 ||
-      sizeInput === 0 ||
-      sizeInput2 === 0
+      sizeInput2 === "" &&
+      priceInput < 0 ||
+      priceInput2 < 0 ||
+      sizeInput < 0 ||
+      sizeInput2 < 0  
     ) {
-      document.getElementById("announcement").classList.add("hidden");
-      document.querySelector(".results").classList.add("hidden");
       alert("Írj be pozitív értéket minden mezőbe");
+      
     } else {
-      setResult(
-        `${(priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
-      );
-      setResult2(
-        `${(priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
-      );
-      Number((priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)) <
-      Number((priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2))
-        ? setResultAnnouncement("Az első pizza jobban megéri")
-        : setResultAnnouncement("A második pizza jobban megéri");
-        document.getElementById("announcement").classList.remove("hidden");
-        document.querySelector(".results").classList.remove("hidden");
-  
-    }
+      
+    } */
+    e.preventDefault();
+    setResult(
+      `${(priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
+    );
+    setResult2(
+      `${(priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
+    );
+    Number((priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)) <
+    Number((priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2))
+      ? setResultAnnouncement("Az első pizza jobban megéri")
+      : setResultAnnouncement("A második pizza jobban megéri");
+      document.getElementById("announcement").classList.remove("hidden");
+      document.querySelector(".results").classList.remove("hidden");
   };
+
+
 
   return (
     <div className="comparePage">
@@ -86,6 +96,7 @@ const ComparisonPage = () => {
       </div>
       <div className="compareBtn">
         <button onClick={getResults}>Összehasonlítás</button>
+    {/*   <button onClick={deleteHandler}>Lenulláz</button> */}
         <h4 id="announcement">{resultAnnouncement}</h4>
       </div>
       <div className="results">
