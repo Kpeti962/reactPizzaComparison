@@ -23,44 +23,44 @@ const ComparisonPage = () => {
     setSizeInput2(e.target.valueAsNumber);
   };
 
-/*    const firstPizzaDistrict = () => {
-    (priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)
-  } 
-   const secondPizzaDistrict = () => {
-    (priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2)
-  }  */
+
 
   const getResults = (e) => {
-    
-/*     if (
-       priceInput === "" ||
-       priceInput2 === "" ||
-      sizeInput === "" ||
-      sizeInput2 === "" &&
-      priceInput < 0 ||
-      priceInput2 < 0 ||
-      sizeInput < 0 ||
-      sizeInput2 < 0  
-    ) {
-      alert("Írj be pozitív értéket minden mezőbe");
-      
-    } else {
-      
-    } */
     e.preventDefault();
-    setResult(
-      `${(priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
-    );
-    setResult2(
-      `${(priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
-    );
-    Number((priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)) <
-    Number((priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2))
-      ? setResultAnnouncement("Az első pizza jobban megéri")
-      : setResultAnnouncement("A második pizza jobban megéri");
-      document.getElementById("announcement").classList.remove("hidden");
-      document.querySelector(".results").classList.remove("hidden");
+
+    if (priceInput > 0 && priceInput2 > 0 && sizeInput > 0 && sizeInput2 > 0) {
+      setResult(
+        `${(priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
+      );
+      setResult2(
+        `${(priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2)} Ft/cm²`
+      );
+      Number((priceInput / ((sizeInput / 2) ** 2 * Math.PI)).toFixed(2)) <
+      Number((priceInput2 / ((sizeInput2 / 2) ** 2 * Math.PI)).toFixed(2))
+        ? setResultAnnouncement("Az első pizza jobban megéri")
+        : setResultAnnouncement("A második pizza jobban megéri");
+        document.getElementById("announcement").classList.remove("hidden");
+        document.querySelector(".results").classList.remove("hidden");
+        if(setResult === setResult2) {
+          setResultAnnouncement("Ugyanannyiba kerül mindkét pizza")
+        }
+    } else {
+      setResult("");
+      setResult2("");
+      setResultAnnouncement("Nincs eredmény")
+      alert("Minden mezőbe pozitív értéket írj!")
+    }
   };
+
+  const resetHandler = () =>{
+    setPriceInput("");
+    setPriceInput2("");
+    setSizeInput("");
+    setSizeInput2("");
+    setResult("");
+    setResult2("");
+    setResultAnnouncement("");
+  }
 
 
 
@@ -96,10 +96,10 @@ const ComparisonPage = () => {
       </div>
       <div className="compareBtn">
         <button onClick={getResults}>Összehasonlítás</button>
-    {/*   <button onClick={deleteHandler}>Lenulláz</button> */}
+       <button onClick={resetHandler}>Lenulláz</button> 
         <h4 id="announcement">{resultAnnouncement}</h4>
       </div>
-      <div className="results">
+     <div className="results">
         <h4>{result}</h4>
         <h4>{result2}</h4>
       </div>
