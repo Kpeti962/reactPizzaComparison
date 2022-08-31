@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/reactPizzaComparison/static/css/main.5097d465.css",
-    "main.js": "/reactPizzaComparison/static/js/main.1a88650f.js",
+    "main.js": "/reactPizzaComparison/static/js/main.667e88b9.js",
     "static/js/787.9275a397.chunk.js": "/reactPizzaComparison/static/js/787.9275a397.chunk.js",
     "index.html": "/reactPizzaComparison/index.html",
     "main.5097d465.css.map": "/reactPizzaComparison/static/css/main.5097d465.css.map",
-    "main.1a88650f.js.map": "/reactPizzaComparison/static/js/main.1a88650f.js.map",
+    "main.667e88b9.js.map": "/reactPizzaComparison/static/js/main.667e88b9.js.map",
     "787.9275a397.chunk.js.map": "/reactPizzaComparison/static/js/787.9275a397.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5097d465.css",
-    "static/js/main.1a88650f.js"
+    "static/js/main.667e88b9.js"
   ]
 }
