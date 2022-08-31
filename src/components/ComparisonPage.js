@@ -70,6 +70,7 @@ const ComparisonPage = () => {
           <motion.input
             animate={{
               boxShadow: `0 0 0 5px #FF0000, 0 0 0 4px #FFFFFF`,
+               borderRadius: "20px",
             }}
             whileFocus={{
               boxShadow: `0 0 0 10px #FFFFFF, 0 0 0 8px #FFFFFF`,
@@ -88,6 +89,7 @@ const ComparisonPage = () => {
           <motion.input
             animate={{
               boxShadow: `0 0 0 5px #FF0000, 0 0 0 4px #FFFFFF`,
+              borderRadius: "20px",
             }}
             whileFocus={{
               boxShadow: `0 0 0 10px #FFFFFF, 0 0 0 8px #FFFFFF`,
@@ -112,6 +114,7 @@ const ComparisonPage = () => {
             }}
             whileFocus={{
               boxShadow: `0 0 0 10px #FFFFFF, 0 0 0 8px #FFFFFF`,
+              borderRadius: "20px",
               transition: {
                 boxShadow: {
                   duration: 0.3,
@@ -130,6 +133,7 @@ const ComparisonPage = () => {
             }}
             whileFocus={{
               boxShadow: `0 0 0 10px #FFFFFF, 0 0 0 8px #FFFFFF`,
+              borderRadius: "20px",
               transition: {
                 boxShadow: {
                   duration: 0.3,
